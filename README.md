@@ -3,10 +3,10 @@
  Download every YouTube videos with links with this simple downloader made with python</p>
 
 
-<p>Use Command </p>
+<p>Use Command : </p>
 
 ```sh
      pip install pytube
  ```
-<p>before using it.</p>
+<p>Before using it.</p>
 <sub><a href="#">Note ~ </a> Video quality may depends on internet speed</sub>
