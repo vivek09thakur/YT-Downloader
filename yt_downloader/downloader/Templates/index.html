@@ -37,7 +37,7 @@
         height: 40px;
         border: 1px solid #ddd;
       }
-      .container input::placeholder{
+      .container input::placeholder {
         padding-left: 20px;
         opacity: 0.5;
       }
@@ -50,16 +50,17 @@
         background: transparent;
         margin-top: 15px;
       }
-      h3{
+      h3 {
         margin-left: 10px;
         font-size: 15px;
         font-weight: 300;
       }
-      @media screen  and (max-width:330px){
-        .container,#download {
+      @media screen and (max-width: 330px) {
+        .container,
+        #download {
           width: 310px;
         }
-        .container input{
+        .container input {
           width: 290px;
         }
       }
@@ -67,12 +68,16 @@
   </head>
   <body>
     <form action="{% url 'download' %}" method="post">
-        <div class="container">
+      <div class="container">
         <h3>YT video downloader</h3>
         {% csrf_token %}
-        <input type="text" name="video_link" placeholder="Enter or paste video link" />
+        <input
+          type="text"
+          name="video_link"
+          placeholder="Enter or paste video link"
+        />
       </div>
-        <button type="submit" id="download">Download</button>
-      </form>
+      <button type="submit" id="download">Download</button>
+    </form>
   </body>
 </html>
