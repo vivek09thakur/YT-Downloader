@@ -18,7 +18,7 @@ def download(request):
                                        fps=60,res='max',
                                        file_extension='mp4'
                                     ).first()
-            stream.download()
+            # stream.download()
             file_path = stream.download()
             # return render(request, 'success.html')
             with open(file_path, 'rb') as file:
