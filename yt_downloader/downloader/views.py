@@ -1,8 +1,9 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-
 # Create your views here.
-# from django.shortcuts import render
 import pytube
+import shutil
+import os
 
 def home(request):
     return render(request, 'index.html')
@@ -12,9 +13,18 @@ def download(request):
         video_link = request.POST.get('video_link')
         try:
             yt = pytube.YouTube(video_link)
-            stream = yt.streams.first()
+            stream = yt.streams.filter(progressive=True,
+                                       resolution='720p',
+                                       fps=60,res='max',
+                                       file_extension='mp4'
+                                    ).first()
             stream.download()
-            return render(request, 'success.html')
+            file_path = stream.download()
+            # return render(request, 'success.html')
+            with open(file_path, 'rb') as file:
+                response = HttpResponse(file.read(), content_type='video/mp4')
+                response['Content-Disposition'] = 'attachment; filename="{0}"'.format(stream.default_filename)
+                return response
         except Exception as e:
             error_message = str(e)
             return render(request, 'error.html', {'error_message': error_message})
