@@ -6,7 +6,7 @@ import shutil
 import os
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'downloader/index.html')
 
 def download(request):
     if request.method == 'POST':
@@ -27,5 +27,5 @@ def download(request):
                 return response
         except Exception as e:
             error_message = str(e)
-            return render(request, 'error.html', {'error_message': error_message})
+            return render(request, 'downloader/error.html', {'error_message': error_message})
 
