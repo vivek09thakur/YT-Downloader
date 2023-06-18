@@ -6,4 +6,4 @@ Copy and Paste your favourite YouTube video link and here you go. Download every
 
 
 
-!> Note ~ Video quality may depends on internet speed
+> Note ~ Video quality may depends on internet speed
