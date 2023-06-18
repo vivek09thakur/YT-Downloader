@@ -13,7 +13,7 @@ def download(request):
         yt = pytube.YouTube(video_link)
         stream = yt.streams.filter().get_highest_resolution()
 
-        if stream:
+        try:
             file_path = stream.download()
             file_name = os.path.basename('./')
 
@@ -21,5 +21,5 @@ def download(request):
                 response = HttpResponse(file.read(), content_type='video/mp4')
                 response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name)
                 return response
-        else:
+        except:
             return render(request, 'downloader/error.html')
