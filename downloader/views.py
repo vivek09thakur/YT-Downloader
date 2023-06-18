@@ -23,8 +23,32 @@ def download(request):
                 response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name)
                 return response
         except Exception as e:
-            print(e)
             pass
             return render(request, 'downloader/error.html')
         except pytube.VideoUnavailable:
             return render(request, 'downloader/error.html')
+        except pytube.exceptions.AgeRestrictedError:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.ExtractError:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.HTMLParseError:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.LiveStreamError:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.MaxRetriesExceeded:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.MembersOnly:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.PytubeError:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.RecordingUnavailable:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.RegexMatchError:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.VideoPrivate:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.VideoRegionBlocked:
+            return render(request, 'downloader/error.html')
+        except pytube.exceptions.VideoUnavailable:
+            return render(request, 'downloader/error.html')
+        
