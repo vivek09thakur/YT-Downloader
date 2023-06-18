@@ -23,4 +23,6 @@ def download(request):
                 response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name)
                 return response
         except Exception as e:
+            print(e)
+            pass
             return render(request, 'downloader/error.html')
