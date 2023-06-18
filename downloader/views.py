@@ -26,3 +26,5 @@ def download(request):
             print(e)
             pass
             return render(request, 'downloader/error.html')
+        except pytube.VideoUnavailable:
+            return render(request, 'downloader/error.html')
