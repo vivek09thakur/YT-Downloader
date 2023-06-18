@@ -20,7 +20,7 @@ def download(request):
                                     ).first()
             # stream.download()
             file_path = stream.download()
-            # return render(request, 'success.html')
+            # render(request, 'downloader/success.html')
             with open(file_path, 'rb') as file:
                 response = HttpResponse(file.read(), content_type='video/mp4')
                 response['Content-Disposition'] = 'attachment; filename="{0}"'.format(stream.default_filename)
