@@ -22,7 +22,7 @@ def download(request):
                 response = HttpResponse(file.read(), content_type='video/mp4')
                 response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name)
                 return response
-        except Exception as e:
+        except Exception :
             pass
             return render(request, 'downloader/error.html')
         except pytube.VideoUnavailable:
