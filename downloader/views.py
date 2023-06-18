@@ -6,7 +6,7 @@ import os
 
 
 def home(request):
-    return render(request, 'static/index.html')
+    return render(request, 'downloader/index.html')
 
 def download(request):
     if request.method == 'POST':
@@ -23,31 +23,31 @@ def download(request):
                 response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name)
                 return response
         except Exception as e:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.VideoUnavailable:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.AgeRestrictedError:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.ExtractError:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.HTMLParseError:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.LiveStreamError:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.MaxRetriesExceeded:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.MembersOnly:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.PytubeError:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.RecordingUnavailable:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.RegexMatchError:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.VideoPrivate:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.VideoRegionBlocked:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         except pytube.exceptions.VideoUnavailable:
-            return render(request, 'static/error.html')
+            return render(request, 'downloader/error.html')
         
