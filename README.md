@@ -1,8 +1,7 @@
 ## YT Downloader
-Copy and Paste your favourite YouTube video link and here you go. Download every YouTube videos with links with this simple downloader made with python
+Copy paste your video URL and get the highest quality video in one go💯.
+
+> | :exclamation:  Video quality and download speed may depends on internet speed   |
+> |-----------------------------------------|
 
 [![Deployed to Vercel](https://vercel.com/button)](https://yt-with-ease.onrender.com/)
-
-
-
-> Note ~ Video quality may depends on internet speed
