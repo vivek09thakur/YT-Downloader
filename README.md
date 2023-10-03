@@ -1,7 +1,7 @@
 ## YT Downloader
-Copy paste your video URL and get the highest quality video in one go💯.
+A simple djangow web app to download youtube videos and shorts for free. Just copy paste your video URL and get the highest quality video in one go :D
 
-> | :exclamation:  Video quality and download speed may depends on internet speed   |
-> |-----------------------------------------|
+> [!IMPORTANT]  
+> Video quality depends on your internet connection's quality
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://yt-with-ease.onrender.com)
+<a href='https://yt-with-ease.onrender.com' align='center'><img width='160px' align='center' src='https://render.com/images/deploy-to-render-button.svg'/></a>
