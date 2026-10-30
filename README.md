@@ -1,7 +1,8 @@
 ## YT Downloader
 A simple FastAPI web app to download youtube videos and shorts for free. Just copy paste your video URL and get the highest quality video in one go :D
 
-> [!IMPORTANT]  
+Live at [https://yt-with-ease.onrender.com](https://yt-with-ease.onrender.com)
+
 > Video quality depends on your internet connection's quality
 
 ### Run locally
@@ -13,11 +14,17 @@ uvicorn main:app --reload
 
 Then open http://127.0.0.1:8000.
 
-### Project layout
+### Deploy on Render
 
-- `main.py` – FastAPI app and routes (`/`, `/download`)
-- `templates/` – Jinja2 HTML templates
-- `static/` – shared stylesheet and static pages
-- `PrototypeDesignSkills.md` – reusable, stack-agnostic UI prototyping skill (principles, tokens, patterns, checklists), with this app as the worked example
+[`render.yaml`](render.yaml) is the Render equivalent of `vercel.json` (a [Blueprint](https://render.com/docs/infrastructure-as-code)), and [`.python-version`](.python-version) pins the Python version Render builds with.
 
-<a href='https://yt-with-ease.onrender.com' align='center'><img width='160px' align='center' src='https://render.com/images/deploy-to-render-button.svg'/></a>
+For an existing web service created from the Dashboard, update its settings once (Django no longer exists in this repo):
+
+| Setting | Value |
+| --- | --- |
+| Build Command | `pip install -r requirements.txt` |
+| Start Command | `uvicorn main:app --host 0.0.0.0 --port $PORT` |
+
+If the service has a `PYTHON_VERSION` environment variable set, remove it (or set it to `3.12.10`) so `.python-version` takes effect.
+
+Alternatively, in the Dashboard choose **New > Blueprint** and connect this repo; because the `name` in `render.yaml` matches the existing service, Render applies the Blueprint to it and keeps it in sync on every push.
